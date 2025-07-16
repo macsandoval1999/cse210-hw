@@ -59,6 +59,7 @@ class Program
             if (option == 1)
             {
                 // Create a new entry Object
+                Console.WriteLine();
                 Entry newEntry = new Entry();
                 // Get the entry date from the system date and covert it to string in the format "MM/DD/YYYY"
                 newEntry._date = DateTime.Now.ToString("MM/dd/yyyy");
