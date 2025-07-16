@@ -13,8 +13,6 @@
 // I also included the current folder to display so that the user knows which journal they are currently working on. 
 // The load function can also check if the file exists and will hand the error gracefully if it doesn't.
 
-
-
 using System;
 using System.Collections.Generic;
 using System.IO;
