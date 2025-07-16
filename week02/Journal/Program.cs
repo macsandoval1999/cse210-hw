@@ -3,11 +3,7 @@
 // DESCRIPTION:
 // This program allows users to create, save, and load journal entries.
 // It includes a menu for writing new entries, displaying all entries, saving to a file,
-// and loading entries from a file. The program uses a simple text-based interface.
-// The journal entries are stored in a CSV format, and the program handles file operations
-// such as reading from and writing to files. The user can also choose to save to a new file
-// or overwrite the current file. The program is designed to be user-friendly and robust,
-// handling invalid inputs gracefully.
+// and loading entries from a file.
 // OTHER FILES: 
 // Entry.cs - Contains the Entry class which represents a journal entry.
 // Journal.cs - Contains the Journal class which manages a list of entries and file operations.
@@ -47,21 +43,19 @@ class Program
             // Display the current file name and the menu options
             Console.WriteLine($"Current file: {currentFile}");
             DisplayMenu();
-            // Read the user's choice
             try
             {
+                // Read the user's choice
                 option = int.Parse(Console.ReadLine());
             }
             catch (FormatException)
             {
                 // If the input is not a valid integer, display an error message and continue
+                Console.WriteLine();
                 Console.WriteLine("[Error: Invalid input.]");
                 Console.WriteLine();
                 continue;
             }
-            Console.WriteLine();
-
-
 
             // OPTION1: Write a new entry
             if (option == 1)
@@ -80,16 +74,12 @@ class Program
                 journal.AddEntry(newEntry);
             }
 
-
-
             // OPTION 2: Display all entries
             else if (option == 2)
             {
                 // Display all entries in the journal
                 journal.DisplayAll();
             }
-
-
 
             // Save entries to file
             else if (option == 3)
@@ -103,37 +93,41 @@ class Program
                 while (saveResponse != "yes" && saveResponse != "no")
                 {
                     {
-                        Console.WriteLine("Invalid response. Please enter 'yes' or 'no'.");
-                        saveResponse = Console.ReadLine().ToLower();
-                    }
-                    if (saveResponse == "yes")
-                    {
-                        // Save to current file
-                        journal.SaveToFile(currentFile);
-                    }
-
-                    // If the user does not want to save to the current file, ask for a new file name
-                    else if (saveResponse == "no")
-                    {
-                        Console.Write("Please enter a new file name to save your journal: ");
-                        currentFile = Console.ReadLine();
-                        journal.SaveToFile(currentFile);
-                        Console.WriteLine($"[Your current file has changed to: {currentFile}]");
-                    }
-                    // If the response is invalid
-                    else
-                    {
+                        Console.WriteLine();
                         Console.WriteLine("[Error: Invalid input.]");
+                        Console.WriteLine();
+                        Console.WriteLine("Would you like to save to the current file?: [yes]or[no]");
                         saveResponse = Console.ReadLine().ToLower();
                     }
-                }            
+                }
+
+                // If the user wants to save to the current file
+                if (saveResponse == "yes")
+                {
+                    // Save to current file
+                    journal.SaveToFile(currentFile);
+                }
+
+                // If the user does not want to save to the current file, ask for a new file name
+                else if (saveResponse == "no")
+                {
+                    Console.Write("Please enter a new file name to save your journal: ");
+                    currentFile = Console.ReadLine();
+                    journal.SaveToFile(currentFile);
+                    Console.WriteLine($"[Your current file has changed to: {currentFile}]");
+                    Console.WriteLine();
+                }
+                // If the response is invalid
+                else
+                {
+                    Console.WriteLine("[Error: Invalid input.]");
+                    saveResponse = Console.ReadLine().ToLower();
+                }
             }
-
-
 
             // Load Journal from file
             else if (option == 4)
-            {   
+            {
                 // Ask the user for the file name to load
                 Console.Write("Please enter the file name to load your journal: ");
                 string loadFile = Console.ReadLine();
@@ -155,20 +149,18 @@ class Program
                 Console.WriteLine();
             }
 
-
-
             // Exit the program
             else if (option == 5)
             {
                 Console.WriteLine("Exiting the program. Goodbye!");
             }
 
-
-
             // Handle invalid options
             else
             {
+                Console.WriteLine();
                 Console.WriteLine("[Error: Invalid input.]");
+                Console.WriteLine();
             }
         }
 

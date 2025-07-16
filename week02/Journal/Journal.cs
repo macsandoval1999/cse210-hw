@@ -21,6 +21,7 @@ public class Journal
     // RETURNS: void
     {
         _entries.Add(newEntry);
+        Console.WriteLine();
         Console.WriteLine("[Entry added successfully!]");
         Console.WriteLine();
     }
@@ -30,14 +31,16 @@ public class Journal
     // PARAMETERS: None
     // RETURNS: void
     {
-        Console.WriteLine("[Displaying all entries...]");
+        Console.WriteLine();
+        Console.WriteLine("__________[Displaying all entries...]__________");
+        Console.WriteLine();
         foreach (Entry entry in _entries)
         {
             // Call the Display method on each entry
             entry.Display();
-            Console.WriteLine(); // Add a blank line for better readability
+            Console.WriteLine();
         }
-        Console.WriteLine("[End of entries]");
+        Console.WriteLine("__________[End of entries]__________");
         Console.WriteLine();
     }
     public void SaveToFile(string filename)
@@ -54,6 +57,7 @@ public class Journal
                 outputFile.WriteLine($"{entry._date},{entry._promptText},{entry._entryText}");
             }
         }
+        Console.WriteLine();
         Console.WriteLine($"[Journal saved to {filename} successfully!]");
         Console.WriteLine();
     }
