@@ -1,18 +1,17 @@
-// This is the Entry class for the Journal Program. This class represents a single entry in a journal.
 using System;
 public class Entry
+// PURPOSE: This class represents a single entry in a journal.
+// MEMBER VARIABLES:
+// - _date: The date the entry was saved, expected in the format "MM/DD/YYYY".
+// - _promptText: The prompt text that was randomly generated for the entry.    
+// - _entryText: The response of the entry.
+// METHODS:
+// - Display: Displays the entry information including date, prompt text, and entry text.
 {
-    // This is a string variable that holds the date the entry was saved. 
-    // It is expected to be in the format "MM/DD/YYYY".
     public string _date;
-    // This is a string variable that holds the prompt text that was randomly generated for the entry.
     public string _promptText;
-
-    // This is a string variable that holds the response of the entry.
     public string _entryText;
 
-    // This is a method that displays the entry information.
-    // It prints the date, prompt text, and entry text to the console.
     public void Display()
     {
         Console.WriteLine($"Date: {_date}");

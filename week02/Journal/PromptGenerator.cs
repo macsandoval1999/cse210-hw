@@ -1,10 +1,10 @@
-// This is the PromptGenerator class for the Journal Program.
-// This class is responsible for generating random prompts for journal entries.
 using System;
 public class PromptGenerator
+// PURPOSE: This class is designed to generate random prompts for journal entries.
+// It contains a list of prompts and a method to retrieve a random prompt.
+// MEMBER VARIABLES: _prompts - a list of strings containing the prompts.
+// METHODS: GetRandomPrompt - returns a random prompt from the list.
 {
-    // This is a list variable that holds all the prompts available for journal entries.
-    // Each prompt is a string that can be randomly selected.
     public List<string> _prompts = new List<string>
     {
         "What made you smile today?",
@@ -49,11 +49,16 @@ public class PromptGenerator
         "What would I say to God today if I knew He was sitting beside me?"
     };
 
-    //  This is a method that gets
     public string GetRandomPrompt()
+    // PURPOSE: This method selects a random prompt from the _prompts list and returns it.
+    // PARAMETERS: None.
+    // RETURNS: A string containing a random prompt.
     {
+        // Create a new random number generator object
         Random random = new Random();
-        int index = random.Next(_prompts.Count);    
+        // Generate a random index based on the number of prompts in the list
+        int index = random.Next(_prompts.Count);
+        // Retrieve the prompt at the random index and return it
         string promptText = _prompts[index];
         return promptText;
     }

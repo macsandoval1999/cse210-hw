@@ -1,6 +1,28 @@
+// PROGRAM: Journal Program
+// AUTHOR: Marco Sandoval
+// DESCRIPTION:
+// This program allows users to create, save, and load journal entries.
+// It includes a menu for writing new entries, displaying all entries, saving to a file,
+// and loading entries from a file. The program uses a simple text-based interface.
+// The journal entries are stored in a CSV format, and the program handles file operations
+// such as reading from and writing to files. The user can also choose to save to a new file
+// or overwrite the current file. The program is designed to be user-friendly and robust,
+// handling invalid inputs gracefully.
+// OTHER FILES: 
+// Entry.cs - Contains the Entry class which represents a journal entry.
+// Journal.cs - Contains the Journal class which manages a list of entries and file operations.
+// PromptGenerator.cs - Contains the PromptGenerator class which provides random prompts for journal entries.
+// EXCEEDING REQUIREMENTS:
+// I improved the save and load functionality by allowing the user to choose whether to save to the current file or a new file. 
+// I also included the current folder to display so that the user knows which journal they are currently working on. 
+// The load function can also check if the file exists and will hand the error gracefully if it doesn't.
+
+
+
 using System;
 using System.Collections.Generic;
 using System.IO;
+
 class Program
 {
     static void Main(string[] args)
@@ -9,19 +31,15 @@ class Program
         // This will hold the current file name for the journal.
         string currentFile = "new-journal.csv";
         // Upon opening the program, we assume a new journal file is being created.
-        // A new journ is initialized.
+        // A new journal object is initialized.
         Journal journal = new Journal();
         // This will hold the user's choice from the menu. It is 0 to enter the loop.
         int option = 0;
         // The prompt generator is initialized.
         PromptGenerator prompts = new PromptGenerator();
 
-
-
         // Display a welcome message
         Console.WriteLine("Welcome to the Journal Program!");
-
-
 
         // Main loop to display the menu and handle user input
         while (option != 5)
@@ -50,7 +68,7 @@ class Program
             {
                 // Create a new entry Object
                 Entry newEntry = new Entry();
-                // Get the entry date from the system date
+                // Get the entry date from the system date and covert it to string in the format "MM/DD/YYYY"
                 newEntry._date = DateTime.Now.ToString("MM/dd/yyyy");
                 // Get the Prompt text from the PromptGenerator
                 newEntry._promptText = prompts.GetRandomPrompt();
@@ -160,6 +178,9 @@ class Program
 
     // ---------------FUNCTIONS---------------
     static void DisplayMenu()
+    // PURPOSE: Displays the menu options to the user.
+    // PARAMETERS: None
+    // RETURNS: Nothing
     {
         Console.WriteLine("Please select one of the following choices:");
         Console.WriteLine("1. Write a new entry");

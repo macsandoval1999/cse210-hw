@@ -2,23 +2,33 @@
 using System;
 using System.Collections.Generic;
 public class Journal
+// PURPOSE: This class is responsible for managing journal entries.
+// MEMBER VARIABLES: 
+// - _entries: A list that holds all the entries in the journal.
+// METHODS:
+// - AddEntry: Adds a new entry to the journal.
+// - DisplayAll: Displays all the entries in the journal.
+// - SaveToFile: Saves the current journal entries to a file.
+// - LoadFromFile: Loads journal entries from a file.
 {
-    // This is a list variable that holds all the entries in a journal.
-    // Each entry is an instance of the Entry class.
     public List<Entry> _entries = new List<Entry>();
 
-    // This is a method that adds a new entry to the current loaded journal.
-    // It takes an Entry object as a parameter and adds it to the _entries list.
     public void AddEntry(Entry newEntry)
+    // PURPOSE: This method adds a new entry to the journal.
+    // PARAMETERS:
+    // - newEntry: An Entry object that contains the date, prompt text, and entry
+    //   text to be added to the journal.
+    // RETURNS: void
     {
         _entries.Add(newEntry);
         Console.WriteLine("[Entry added successfully!]");
         Console.WriteLine();
     }
 
-    // This is a method that displays all the entries in the journal.
-    // It iterates through the _entries list and calls the Display method on each Entry object
     public void DisplayAll()
+    // PURPOSE: This method displays all the entries in the journal.
+    // PARAMETERS: None
+    // RETURNS: void
     {
         Console.WriteLine("[Displaying all entries...]");
         foreach (Entry entry in _entries)
@@ -30,10 +40,11 @@ public class Journal
         Console.WriteLine("[End of entries]");
         Console.WriteLine();
     }
-
-    // This is a method that saves the current journal entries to a file.
-    // It takes a file name as a parameter and writes the entries to that file.
     public void SaveToFile(string filename)
+    // PURPOSE: This method saves the current journal entries to a file.
+    // PARAMETERS:
+    // - filename: The name of the file where the journal entries will be saved.
+    // RETURNS: void
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
@@ -47,9 +58,11 @@ public class Journal
         Console.WriteLine();
     }
 
-    // This is a method that loads journal entries from a file.
-    // It takes a file name as a parameter and reads the entries from that file.
     public void LoadFromFile(string filename)
+    // PURPOSE: This method loads journal entries from a file.
+    // PARAMETERS: 
+    // - filename: The name of the file from which the journal entries will be loaded.
+    // RETURNS: void
     {
         _entries.Clear(); // Clear existing entries before loading new ones
         string[] lines = System.IO.File.ReadAllLines(filename);
