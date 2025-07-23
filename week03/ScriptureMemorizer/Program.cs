@@ -2,7 +2,7 @@
 // AUTHOR: Marco Sandoval
 // DESCRIPTION: A program that generates a random scripture and hides three random words each time the user presses Enter, until all words are hidden.
 // OTHER FILES: Scripture.cs, ScriptureLibrary.cs, Scriptures.csv, Reference.cs, Word.cs
-// EXCEEDING REQUIREMENTS: I created a ScriptureLibrary class that a list of scriptures is created from a CSV file. A random scripture is selected each time the program is ran. I also adjusted the HideRandomWords method so that it never hides the same word again.
+// EXCEEDING REQUIREMENTS: I created a ScriptureLibrary class that is made up of a list of scriptures. It uses a method to load scriptures from a file. A random scripture is selected each time the program is ran. I also adjusted the HideRandomWords method so that it never hides the same word again.
 
 using System;
 using System.Collections.Generic;
