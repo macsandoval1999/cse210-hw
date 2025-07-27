@@ -50,6 +50,6 @@ public class Order
         Console.WriteLine("-Order Summary:\n");
         Console.WriteLine($" {order.GetShippingLabel()}\n");
         Console.WriteLine($" {order.GetPackingLabel()}");
-        Console.WriteLine($" Total Cost: {order.CalculateTotalCost():C}\n");
+        Console.WriteLine($" Total Cost: {order.CalculateTotalCost():C}\n"); // :C is a format specifier for currency. It would format to the system's current culture's currency format.
     }
 }
