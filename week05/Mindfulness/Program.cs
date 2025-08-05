@@ -89,7 +89,7 @@ class Program
     }
 
     // -----METHODS-----
-    public static void DisplayMenu()
+    static void DisplayMenu()
     // Method to display the main menu
     {
         Console.WriteLine("Menu Options:");
@@ -98,7 +98,7 @@ class Program
         Console.WriteLine("3. Start reflecting activity");
         Console.WriteLine("4. Quit");
     }
-    public static void DisplaySummary(int completedActivities, int timeSpentOnActivities, Activity activity)
+    static void DisplaySummary(int completedActivities, int timeSpentOnActivities, Activity activity)
     // Method to display a summary of the activities completed and time spent
     {
                 Console.WriteLine("Great progress today!");
